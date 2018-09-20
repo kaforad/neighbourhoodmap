@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+   		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="css/placeofinterest.css"/>
+                   
+        <script src="data/data.js" type="text/javascript"></script>
+       
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+       
+        <script src="js/lib/jquery331.min.js"> </script>
+        <!--<script src="js/lib/popper11413.min.js"> </script>-->
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" defer></script>  
+        <script src="js/lib/bootstrap.min.js"></script>
+        
+        
+        <!--<script type ="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js" defer></script>-->
+  
+    <!--<button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>-->    
+    <!--<input class="form-control mr-sm-2" type="search" placeholder="Type Place of Interest" aria-label="Search">-->
+    </head>
+    <body>
+    <div class="row fullsize"> <!--start row-->
+       <nav class="col-md-2 d-none d-md-block bg-light sidebar">  
+       <div class="container sidebar-sticky" id="stayabove">
+            <nav class="navbar navbar-light bg-light">
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    <span>Search</span>
+               </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!--<div class="search-container">-->
+                    <div style="display:block;clear:both;">
+                        <!--<div class="search-filter align-items-start col-lg-12 col-md-12">-->
+                        <form class="form-inline">                            
+                             <input data-bind="value: searchQuery, valueUpdate: 'keyup'"  type="search" id="searchQuery" value="">                            
+                        </form>
+
+                        <div class="search-result">
+                        <!--<div class="search-result align-items-end col-lg-12 col-md-12">-->
+                            <ul data-bind="foreach: searchResult">
+                                                            
+                                 <li data-bind="text: name,  click:$parent.getLocation, id:iterateId"></li>
+                                
+                            </ul>                            
+                        </div>
+                    </div>
+                  <!--</div>-->
+                </div>
+            </nav>
+        </div>   
+        </nav>
+        <main  role="main" class="col-md-9 col-lg-10 px-4"> 
+        <div id="map"> </div> 
+        </main>  
+        </div><!-- end row     -->
+        <!--<script src="js/placeofinterest.js"></script>-->
+        <script src="js/lib/knockout342-min.js" defer></script>
+       <script src="js/kafknockout.js" type="text/javascript"  defer></script>
+       
+       <script src="js/gMarker-hideshow.js" type="text/javascript" defer></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1dgUZsku81iNtopS1vymoqO2TdvrmWfg&callback=initMap" onerror="loadError()"  async defer></script>
+
+    </body>
+
+</html>

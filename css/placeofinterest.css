@@ -1,0 +1,36 @@
+#map,.fullsize{
+    height:100%;
+    width:100%;
+     /*z-index: -1;*/
+}
+
+html,body{
+    height:100%;
+    margin:0;
+    padding:0;
+}
+
+ /*#stayabove{  
+    position:absolute;       
+    left: 200px;
+    top: 10px;
+    z-index:5;
+    max-width:40%;
+ 
+   }*/
+
+    /*.search-container{
+       position:relative;       
+        left: 0px;
+        top: 0px;
+        background-color:#DCDCDC;
+        width:auto;
+       
+       
+   }*/
+   
+  .search-result ul{
+      list-style-type: none;
+      margin-left: -60px;  
+     
+  }
