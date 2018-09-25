@@ -17,11 +17,11 @@ internet connection
 
 ##VIEWING NEIGHBOURHOOD MAP
 The project can be viewed by:
-1. Clone the whole project into a server on your local system and browser to the application path on your system(or click on the index file to launch)
-2. Click on the link : https://kaforad.github.io/neighboorhoodmap/
+1. Cloning the whole project into a server on your local system and browser to the application path on your system(or click on the index file to launch)
+2.The project can be viewed on: https://kaforad.github.io/neighbourhoodmap/
 
-##REFERENCES
-- RESOURCES/LIBRARIES USED
+
+## RESOURCES/LIBRARIES USED
 - Knockout Js
 - jQuery
 - Google Map API
