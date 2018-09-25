@@ -17,8 +17,8 @@ internet connection
 
 ##VIEWING NEIGHBOURHOOD MAP
 The project can be viewed by:
-1. Cloning the whole project into a server on your local system and browser to the application path on your system(or click on the index file to launch)
-2.The project can be viewed on: https://kaforad.github.io/neighbourhoodmap/
+1.  Cloning the whole project into a server on your local system and browser to the application path on your system(or click on the index file to launch.
+2.  The project can be viewed on: https://kaforad.github.io/neighbourhoodmap/
 
 
 ## RESOURCES/LIBRARIES USED
@@ -28,4 +28,8 @@ The project can be viewed by:
 - Poper
 - Twitter Boostrap 
 - Wikipedia    
-
+## References
+- https://developers.google.com/maps
+- http://getbootstrap.com
+- www.w3schools.com
+- https://developer.mozilla.org
