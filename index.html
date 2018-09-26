@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/placeofinterest.css" />
 
-    <script src="data/data.js" type="text/javascript"></script>
+    <script src="data/data.js"></script>
 
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
 
@@ -17,7 +17,7 @@
 
 
     <!--<script type ="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js" defer></script>-->
-
+        <title>Neighbourhood Map- Nigeria Government Parastatals</title>
 
 </head>
 
@@ -45,9 +45,11 @@
                             <div class="search-result">
 
                                 <ul data-bind="foreach: searchResult" class="list-group">
-                                    <a href='#'>
-                                        <li data-bind="text: name,  click:$parent.getClickedList, id:iterateId" class="list-group-item"></li>
-                                    </a>
+
+                                        <li class="list-group-item">
+                                            <a href='#' data-bind="text: name,  click:$parent.getClickedList, id:iterateId" >   </a>
+                                        </li>
+
 
                                 </ul>
                             </div>
@@ -58,15 +60,15 @@
             </div>
         </nav>
 
-        <main role="main" class="col-md-9 col-lg-10 px-4 map">
-            <div id="map"> </div>
+        <main  class="col-md-9 col-lg-10 px-4 map">
+            <div class="map"> </div>
         </main>
     </div>
     <!-- end row     -->
     <!--<script src="js/placeofinterest.js"></script>-->
     <script src="js/lib/knockout342-min.js" defer></script>
-    <script src="js/gMarker-hideshow.js" type="text/javascript" defer></script>
-    <script src="js/kafknockout.js" type="text/javascript" defer></script>
+    <script src="js/gMarker-hideshow.js"  defer></script>
+    <script src="js/kafknockout.js"  defer></script>
 
 
 
