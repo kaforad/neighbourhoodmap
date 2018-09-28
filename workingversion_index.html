@@ -39,16 +39,15 @@
                         <div style="display:block;clear:both;">
 
                             <form class="form-inline">
-                                <!--<input data-bind="value: searchQuery, valueUpdate: 'keyup'" type="search" id="searchQuery" value="" class="searchInput">-->
-                                 <input data-bind="textInput:queryString" type="search" id="searchQuery" value="" class="searchInput">
+                                <input data-bind="value: searchQuery, valueUpdate: 'keyup'" type="search" id="searchQuery" value="" class="searchInput">
                             </form>
 
                             <div class="search-result">
 
-                                <ul data-bind="foreach: filterLocation" class="list-group">
+                                <ul data-bind="foreach: searchResult" class="list-group">
 
-                                        <li class="list-group-item" >
-                                           <a href='#' data-bind="text: name, click:$parent.getClickedList">   </a>
+                                        <li class="list-group-item">
+                                            <a href='#' data-bind="text: name,  click:$parent.getClickedList, id:iterateId" >   </a>
                                         </li>
 
 
@@ -75,9 +74,9 @@
 
 
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1dgUZsku81iNtopS1vymoqO2TdvrmWfg&callback=callMapFxn" onerror="loadError();"
+    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1dgUZsku81iNtopS1vymoqO2TdvrmWfg&callback=callMapFxn" onerror="loadError();"-->
         async defer></script>
-     <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1dgUZsku81iNtopS1vymoqO2TdvrmWfg&callback=initMap" onerror="loadError();"-->
+     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1dgUZsku81iNtopS1vymoqO2TdvrmWfg&callback=initMap" onerror="loadError();"
         async defer></script>
 
 </body>

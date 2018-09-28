@@ -1,4 +1,4 @@
-.map,
+#map,
 .fullsize{
     height:100%;
     width:100%;
@@ -34,7 +34,7 @@ body{
   .sidebar a {
     float: left;
   }
-  .map {
+  #map {
     margin-left: 0;
   }
 }
