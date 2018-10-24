@@ -1,85 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/placeofinterest.css" />
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/placeofinterest.css" />
 
-    <script src="data/data.js"></script>
+        <script src="data/data.js"></script>
 
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
 
-    <script src="js/lib/jquery331.min.js"> </script>
-    <!--<script src="js/lib/popper11413.min.js"> </script>-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" defer></script>
-    <script src="js/lib/bootstrap.min.js"></script>
+        <script src="js/lib/jquery331.min.js"> </script>
+        <!--<script src="js/lib/popper11413.min.js"> </script>-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" defer></script>
+        <script src="js/lib/bootstrap.min.js"></script>
 
 
-    <!--<script type ="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js" defer></script>-->
+        <!--<script type ="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js" defer></script>-->
         <title>Neighbourhood Map- Nigeria Government Parastatals</title>
 
-</head>
+        </head>
 
-<body>
-    <div class="row fullsize">
-        <!--start row-->
+    <body>
+        <div class="wrapper">
+            <!-- Sidebar -->
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <h6>Search</h6>
+                </div>
+                <div style="display:block;clear:both;">
 
-        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-            <div class="container sidebar-sticky">
-                <nav class="navbar navbar-light bg-light">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                    <span>Search</span>
-               </button>
+                       <form class="form-inline">
+                            <input data-bind="textInput:queryString" type="search" id="searchQuery" value="" class="searchInput" placeholder="Type Here To Search">
+                       </form>
+                </div>
+                <ul data-bind="foreach: filterLocation" class="list-group search-result">
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <li class="list-group-item" >
+                            <a href='#' data-bind="text: name, click:$parent.getClickedList">   </a>
+                        </li>
+                </ul>
 
-                        <div style="display:block;clear:both;">
-
-                            <form class="form-inline">
-                                <!--<input data-bind="value: searchQuery, valueUpdate: 'keyup'" type="search" id="searchQuery" value="" class="searchInput">-->
-                                 <input data-bind="textInput:queryString" type="search" id="searchQuery" value="" class="searchInput">
-                            </form>
-
-                            <div class="search-result">
-
-                                <ul data-bind="foreach: filterLocation" class="list-group">
-
-                                        <li class="list-group-item" >
-                                           <a href='#' data-bind="text: name, click:$parent.getClickedList">   </a>
-                                        </li>
-
-
-                                </ul>
-                            </div>
+            </nav>
+            <div id="content">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <div class="container-fluid">
+                            <button type="button" id="sidebarCollapse" class="btn btn-primary toggle-btn">
+                                <i class="fas fa-align-left"></i>
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
                         </div>
-
-                    </div>
                 </nav>
+                <!--map canvas- Display map here-->
+                <div id="map" class="map-canvas"> </div>
             </div>
-        </nav>
+        </div>
+        <script>
+        $(document).ready(function () {
 
-        <main  class="col-md-9 col-lg-10 px-4 map">
-            <div id="map"> </div>
-        </main>
-    </div>
-    <!-- end row     -->
-    <!--<script src="js/placeofinterest.js"></script>-->
-    <script src="js/lib/knockout342-min.js" defer></script>
-    <script src="js/gMarker-hideshow.js"  defer></script>
-    <!--<script src="js/kafknockout.js"  defer></script>-->
-    <script src="js/kafknockout.js"  defer></script>
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
 
-
-
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1dgUZsku81iNtopS1vymoqO2TdvrmWfg&callback=callMapFxn" onerror="loadError();"
-        async defer></script>
-     <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1dgUZsku81iNtopS1vymoqO2TdvrmWfg&callback=initMap" onerror="loadError();"-->
-        async defer></script>
-
-</body>
+        });
+        </script>
+        <script src="js/lib/knockout342-min.js" defer></script>
+            <script src="js/gMarker-hideshow.js"  defer></script>
+            <!--<script src="js/kafknockout.js"  defer></script>-->
+            <script src="js/kafknockout.js"  defer></script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1dgUZsku81iNtopS1vymoqO2TdvrmWfg&callback=callMapFxn" onerror="loadError();"
+                async defer></script>
+     </body>
 
 </html>

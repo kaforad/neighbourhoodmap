@@ -1,3 +1,4 @@
+'use strict'
 var map;
 var mapCenter;
 var marker;
@@ -11,9 +12,7 @@ function initMap(lat = 9.024263, lng = 7.4733) {
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 11,
         center: mapCenter,
-
     });
-
 }
 
 /**
@@ -42,11 +41,11 @@ function myNeighbourhood() {
             map: map,
             visible: false
         });
-        // aMarker.push(marker);
+        aMarker.push(marker);
     });
     //create infowindow for later use.
     infowindow = new google.maps.InfoWindow({
-        maxwidth: 200,
+        maxWidth: 200
     });
 
     /**
@@ -72,8 +71,16 @@ function myNeighbourhood() {
                 //set Map info window to marker informationdetails
                 data.shift(); //remove the first element  of the array which is the Title sent to wikipeadia API.
                 data.forEach(function (info) {
+                    // console.log(info);
+                    // // console.log(info[3]);
 
-                    contentDisplay += "<p>" + info.toString() + "</p>";
+                    // if(info.includes("https")){
+                    //     console.log(info);
+                    // }else{
+                    //       console.log("info not url");
+                    // }
+
+                    contentDisplay += "<div class='displaywindow'><p>" + info.toString() + "</p></div>";
                 });
                 //set infowindow content
                 infowindow.setContent(contentDisplay);
@@ -82,6 +89,7 @@ function myNeighbourhood() {
 
                 //pick infowindow content from local data when there is any form of error e.g. no network
                 infowindow.setContent(offLineContent);
+                alert("Data can not be loaded at this time.Please check your internet connection");
             },
 
         });
@@ -98,23 +106,20 @@ function myNeighbourhood() {
 
             // display marker and create infowindow onClick Marker
             let contentString = place.name;
-            let offLineContent = `<b>${place.name}</b><br>(<i>${place.type}</i>)</br> <p> ${place.location} <p> ${place.latlng.lat}, ${place.latlng.lng}`;
+            let offLineContent = `<div class="displaywindow"></div><b>${place.name}</b><br>(<i>${place.type}</i>)</br> <p> ${place.location} <p> ${place.latlng.lat}, ${place.latlng.lng}</div>`;
             //convert search Result name to wikipedia title by replacing spaces with underscore.
             let wikiTitle = contentString.replace(/ /g, '_') + '_(Nigeria)';
             let marker = new google.maps.Marker({
                 map: map,
                 position: { lat: place.latlng.lat, lng: place.latlng.lng },
                 title: place.name,
-
-
-
                 // visible:false
             });
 
-            aMarker.push(marker);
+            // aMarker.push(marker);
 
             // infowindow = new google.maps.InfoWindow({
-            //     maxwidth: 200,
+            //     maxWidth: 200,
             // });
 
             marker.addListener('click', function (event) {
@@ -139,25 +144,36 @@ function myNeighbourhood() {
 
     self.getClickedList = function (item) {
 
-
         self.contentString = item.name;
+       self.offLineContent = `<b>${item.name}</b><br>(<i>${item.type}</i>)</br> <p> ${item.location} <p> ${item.latlng.lat}, ${item.latlng.lng}`;
         self.wikiTitle = self.contentString.replace(/ /g, '_') + '_(Nigeria)';
 
-        //   marker = new google.maps.Marker({
-        //         map: map,
-        //         position: {lat: item.latlng.lat, lng: item.latlng.lng},
-        //         title: item.name,
-        //         animation: google.maps.Animation.Bounce,
-        //         // visible:false
-        //     });
+    //       marker = new google.ma/ps.Marker({
+    //             map: map,
+    //             position: {lat: item.latlng.lat, lng: item.latlng.lng},
+    //             title: item.name,
+    //             animation: google.maps.Animation.Bounce,
+    //              icon: {
+    //   url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+    // }
+    //             // visible:false
+    //         });
 
+// marker.setAnimation(google.maps.Animation.DROP);
+// places.forEach(function(marker){
+// console.log(marker.getPosition())
+// marker.setAnimation(google.maps.Animation.BOUNCE);
+// });
         var latlng = new google.maps.LatLng(item.latlng.lat, item.latlng.lng);
+
+
         marker.setPosition(latlng);
-        // marker.setAnimation(null);
-        marker.setAnimation(google.maps.Animation.BOUNCE);
+        // marker.setOpacity(0.5);
+
+        // marker.setAnimation(google.maps.Animation.BOUNCE);
 
 
-        self.getExData(self.wikiTitle, offLineContent = '');
+        self.getExData(self.wikiTitle, self.offLineContent );
 
         infowindow.open(map, marker);
 

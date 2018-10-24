@@ -1,0 +1,51 @@
+.map-canvas,
+.fullsize{
+    height:100%;
+    width:100%;
+     /*z-index: -1;*/
+}
+
+html,
+body{
+    height:100%;
+    margin:0;
+    padding:0;
+}
+
+
+
+  .search-result ul{
+      list-style-type: none;
+      margin-left: -40px;
+
+  }
+  .searchInput{
+      /*width:100%;*/
+      /*margin-left: -40px;*/
+
+  }
+
+  @media screen and (max-width: 700px) {
+  .sidebar{
+     width: 100%;
+    height: auto;
+    position: fixed;
+  }
+  .sidebar a {
+    float: left;
+  }
+  /*#map {
+    margin-left: 0;
+  }*/
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+
+  }
+
+
+
+}

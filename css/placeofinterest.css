@@ -1,5 +1,51 @@
-#map,
-.fullsize{
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+     min-height: 100vh;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+}
+
+@include media-breakpoint-up(sm) {
+  html {
+    font-size: 1.2rem;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  html {
+    font-size: 1.4rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  html {
+    font-size: 1.6rem;
+  }
+}
+
+#content{
+  width:100%;
+}
+.map-canvas{
     height:100%;
     width:100%;
      /*z-index: -1;*/
@@ -11,37 +57,9 @@ body{
     margin:0;
     padding:0;
 }
-
-
-
-  .search-result ul{
-      list-style-type: none;
-      margin-left: -40px;
-
-  }
-  .searchInput{
-      /*width:100%;*/
-      margin-left: -40px;
-
-  }
-
-  @media screen and (max-width: 700px) {
-  .sidebar{
-     width: 100%;
-    height: auto;
-    position: relative;
-  }
-  .sidebar a {
-    float: left;
-  }
-  #map {
-    margin-left: 0;
-  }
+.toggle-btn{
+margin-left:-30px;
 }
-
-@media screen and (max-width: 400px) {
-  .sidebar a {
-    text-align: center;
-    float: none;
-  }
+.searchInput{
+      width:100%;
 }
