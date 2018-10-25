@@ -1,4 +1,6 @@
-'use strict'
+// jshint esversion: 6
+
+"use strict";
 var map;
 var mapCenter;
 var marker;
@@ -85,7 +87,7 @@ function myNeighbourhood() {
 
         });
         //end ajax call to wikipedi
-    }
+    };
 
 
 
@@ -116,13 +118,11 @@ function myNeighbourhood() {
 
                 self.getExData(wikiTitle, offLineContent);
                 infowindow.open(map, marker);
-
             });
-
         });
 
 
-    }
+    };
 
 
 
@@ -145,7 +145,7 @@ function myNeighbourhood() {
 
         infowindow.open(map, marker);
 
-    }
+    };
 
 
 
@@ -158,7 +158,7 @@ function myNeighbourhood() {
         //filter the location array by search value
         return self.locData().filter(function (myCommunityData) {
             return myCommunityData.name.toLowerCase().indexOf(self.queryString().toString().toLowerCase()) > -1;
-        })
+        });
 
     }, this);
 }//end of myNeighourhood ViewModel
@@ -182,6 +182,6 @@ function callMapFxn() {
 * @returns {}  bind value to the html page
 */
 function loadError() {
-    $('#map').append("<div class='alert alert-warning' role='alert'> The map can not be loaded at this time.Please,confirm you are connected to the Internet</div>")
+    $('#map').append("<div class='alert alert-warning' role='alert'> The map can not be loaded at this time.Please,confirm you are connected to the Internet</div>");
     alert('Failed Request. This may be due to no network');
 }
