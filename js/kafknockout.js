@@ -10,7 +10,7 @@ var aMarker = [];
 function initMap(lat = 9.024263, lng = 7.4733) {
     mapCenter = { lat: lat, lng: lng };
     map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 11,
+        zoom: 13,
         center: mapCenter,
     });
 }
@@ -71,16 +71,7 @@ function myNeighbourhood() {
                 //set Map info window to marker informationdetails
                 data.shift(); //remove the first element  of the array which is the Title sent to wikipeadia API.
                 data.forEach(function (info) {
-                    // console.log(info);
-                    // // console.log(info[3]);
-
-                    // if(info.includes("https")){
-                    //     console.log(info);
-                    // }else{
-                    //       console.log("info not url");
-                    // }
-
-                    contentDisplay += "<div class='displaywindow'><p>" + info.toString() + "</p></div>";
+                   contentDisplay += "<div class='displaywindow'><p>" + info.toString() + "</p></div>";
                 });
                 //set infowindow content
                 infowindow.setContent(contentDisplay);
@@ -116,19 +107,14 @@ function myNeighbourhood() {
                 // visible:false
             });
 
-            // aMarker.push(marker);
-
-            // infowindow = new google.maps.InfoWindow({
-            //     maxWidth: 200,
-            // });
 
             marker.addListener('click', function (event) {
-                marker.setAnimation(google.maps.Animation.BOUNCE);
+
+                  marker.setAnimation(google.maps.Animation.BOUNCE);
+                  map.setZoom(15);
+                 setTimeout(function(){ marker.setAnimation(null); }, 2000);
 
                 self.getExData(wikiTitle, offLineContent);
-
-
-
                 infowindow.open(map, marker);
 
             });
@@ -148,27 +134,9 @@ function myNeighbourhood() {
        self.offLineContent = `<b>${item.name}</b><br>(<i>${item.type}</i>)</br> <p> ${item.location} <p> ${item.latlng.lat}, ${item.latlng.lng}`;
         self.wikiTitle = self.contentString.replace(/ /g, '_') + '_(Nigeria)';
 
-    //       marker = new google.ma/ps.Marker({
-    //             map: map,
-    //             position: {lat: item.latlng.lat, lng: item.latlng.lng},
-    //             title: item.name,
-    //             animation: google.maps.Animation.Bounce,
-    //              icon: {
-    //   url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-    // }
-    //             // visible:false
-    //         });
-
-// marker.setAnimation(google.maps.Animation.DROP);
-// places.forEach(function(marker){
-// console.log(marker.getPosition())
-// marker.setAnimation(google.maps.Animation.BOUNCE);
-// });
         var latlng = new google.maps.LatLng(item.latlng.lat, item.latlng.lng);
-
-
         marker.setPosition(latlng);
-        // marker.setOpacity(0.5);
+
 
         // marker.setAnimation(google.maps.Animation.BOUNCE);
 
