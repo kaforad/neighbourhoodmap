@@ -17,8 +17,12 @@ internet connection
 
 ## VIEWING NEIGHBOURHOOD MAP ##
 The project can be viewed by:
-1.  Cloning the whole project into a server on your local system and browser to the application path on your system(or click on the index file to launch.
-2.  The project can be viewed on: https://kaforad.github.io/neighbourhoodmap/
+
+1.	Cloning the whole project into a server on your local system and browser to the application path on your system to launch the application.
+ If on windows operating system, navigate to :
+ C:\Windows\System32\drivers\etc\hosts and map 127.0.0.1 to an arbitrary web address. e.g. 127.0.0.1 www.mneighbourhood.com
+ 
+2.	The project can be viewed on: https://kaforad.github.io/neighbourhoodmap/
 
 
 ## RESOURCES/LIBRARIES USED ##
